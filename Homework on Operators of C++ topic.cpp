@@ -138,7 +138,7 @@
 //    return 0;
 //}
 // 
-////exercise 4. 
+////Exercise 4. 
 ////15)
 ////1
 ////0
@@ -178,7 +178,7 @@
 //}
 // 
 ////Exercise 5. 
-////15) 
+////15) y = ln|3x|√(2x^5 - 1)
 //
 //#include <iostream>
 //#include <cmath>
@@ -233,7 +233,9 @@
 //}
 // 
 ////Exercise 6. 
-////15)
+////15)y = {1, if(x - 1) < 1;
+////        0, if(x - 1) = 1;
+////        -1, if(x - 1) > 1}
 //
 //#include <iostream>
 //using namespace std;
