@@ -126,7 +126,9 @@
 //
 //using namespace std;
 //
-//int main() {
+//int main() 
+//{
+//
 //    int A, B;
 //    cin >> A >> B;
 //
@@ -164,6 +166,7 @@
 //
 //int main()
 //{
+//
 //    int numbers_number = 5;
 // 
 //    for (int i = 1; i <= numbers_number; ++i)
@@ -183,6 +186,7 @@
 //#include <iostream>
 //#include <cmath>
 //#include <iomanip>
+//
 //using namespace std;
 //
 //double calculateFunction(double x) {
@@ -195,7 +199,7 @@
 //}
 //
 //int main() 
-// {
+//{
 //    
 //    double a, b, h;
 //
@@ -238,6 +242,7 @@
 ////        -1, if(x - 1) > 1}
 //
 //#include <iostream>
+//
 //using namespace std;
 //
 //int main() 
