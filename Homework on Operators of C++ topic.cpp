@@ -1,55 +1,53 @@
-﻿////Topic 3. Operators of C++.
-////Exercise 1. 
-////15)    
-////             y
-////             |
-////y = -x   ____|____
-////       _|****|****|_
-////     _|  \***|******|_
-////    |      \*|********| 10
-////----|--------\--------|----x
-////    |_       | \******|
-////      |_     |   \*_|
-////        |____|____|
-////             |  
-////             | 
+////Topic 3. Operators of C++
+////Exercise 1
+////15)
 // 
 //#include <iostream>
 //
 //using namespace std;
 //
-//int main()
+//void task1_15()
 //{
 //
 //    int x, y;
 //    cin >> x >> y;
 //
-//    if (x >= 0 && x < 8 && y >= 0 && y < 8 ) //if the point is inside the shaded area, print "Yes". 
+//    if (x >= 0 && x < 8 && y >= 0 && y < 8) //if the point is inside the shaded area, print "Yes". 
 //    {
 //        cout << "Yes";
 //
-//    } else if (x <= 0 && x > -4 && y >= 0 && y < 8) 
+//    }
+//    else if (x <= 0 && x > -4 && y >= 0 && y < 8)
 //    {
 //        cout << "Yes";
 //
-//    } else if (x >= 0 && x < 8 && y <= 0 && y > -4) 
+//    }
+//    else if (x >= 0 && x < 8 && y <= 0 && y > -4)
 //    {
 //        cout << "Yes";
 //
-//    } else if (x <= -1 && x >= -4 && y <= 8 && y > 0 || x > 0 && x <= 8 && y <= 8 || x > 0 && x <= 8 && y <= 0 && y >= -4) //if the point is at the shaded area border, print "At the border"
+//    }
+//    else if (x <= -1 && x >= -4 && y <= 8 && y > 0 || x > 0 && x <= 8 && y <= 8 || x > 0 && x <= 8 && y <= 0 && y >= -4) //if the point is at the shaded area border, print "At the border"
 //    {
 //        cout << "At the border ";
 //
-//    } 
+//    }
 //    else //if the point is outside the shaded area, print "No"
 //    {
-//        cout << "No"; 
+//        cout << "No";
 //    }
+//}
 //
+//int main()
+//{
+//
+//    task1_15();
 //    return 0;
 //}
-// 
-////Exercise 2. 
+ 
+
+
+////Exercise 2 
 ////15) 
 // 
 //#include <iostream>
@@ -57,11 +55,14 @@
 //
 //using namespace std;
 //
-//int main()
+//void task2_15()
 //{
+//
 //    cout << "sign: ";
 //    char sign = cin.get();
-//    if (sign == 'c') {
+//
+//    if (sign == 'c')
+//    {
 //
 //        const auto pi = 3.14;
 //
@@ -104,7 +105,8 @@
 //
 //        cout << "Perimeter: " << perimeter << '\n';
 //
-//        if (arg <= 0) {
+//        if (arg <= 0)
+//        {
 //            cout << "Triangle does not exist!";
 //
 //        }
@@ -117,30 +119,46 @@
 //    else {
 //        cout << "Parameters are unknown!";
 //    }
+//}
+//
+//int main()
+//{
+//    task2_15();
 //    return 0;
 //}
-// 
-////Exercise 3.
+
+
+
+////Exercise 3
 ////15)
+// 
 //#include <iostream>
 //
 //using namespace std;
 //
-//int main() 
+//void task3_15()
 //{
-//
 //    int A, B;
 //    cin >> A >> B;
 //
-//    for (int i = A; i < B; i++) {
-//        if (i % 3 == 0 && i % 2 == 0) {
+//    for (int i = A; i < B; i++)
+//    {
+//        if (i % 3 == 0 && i % 2 == 0)
+//        {
 //            cout << i << " ";
 //        }
 //    }
+//}
+//
+//int main() 
+//{
+//    task3_15();
 //    return 0;
 //}
-// 
-////Exercise 4. 
+ 
+
+
+////Exercise 4 
 ////15)
 ////1
 ////0
@@ -155,20 +173,22 @@
 //
 //#include <iostream>
 //
-//using std::cout;
+//using namespace std;
 //
 //
 //void NewPrint(int K, int N)
 //{
 //    for (int i = 1; i <= N; ++i)
-//        cout << K << " ";
+//    {
+//        cout << K << " "; 
+//    }
+//        
 //}
 //
-//int main()
+//void task4_15()
 //{
-//
 //    int numbers_number = 5;
-// 
+//
 //    for (int i = 1; i <= numbers_number; ++i)
 //    {
 //        NewPrint(i, i);
@@ -176,31 +196,35 @@
 //        NewPrint(0, i);
 //        cout << "\n";
 //    }
-//    
+//}
+//
+//int main()
+//{
+// 
+//    task4_15();
 //    return 0;
 //}
-// 
-////Exercise 5. 
+ 
+
+
+////Exercise 5
 ////15) y = ln|3x|√(2x^5 - 1)
 //
 //#include <iostream>
 //#include <cmath>
 //#include <iomanip>
-//
+// 
 //using namespace std;
 //
 //double calculateFunction(double x) {
-//    // Проверяем, определена ли функция в данной точке
 //    if (x == 0 || (2 * pow(x, 5) - 1) < 0)
-//        return NAN; // Возвращаем не число, если функция не определена
+//        return NAN; 
 //
-//    // Вычисляем значение функции
 //    return log(fabs(3 * x)) * sqrt(2 * pow(x, 5) - 1);
 //}
 //
-//int main() 
+//void task5_15()
 //{
-//    
 //    double a, b, h;
 //
 //    cout << "Begin of interval (a): ";
@@ -210,10 +234,9 @@
 //    cout << "Step (h): ";
 //    cin >> h;
 //
-//    // Проверяем корректность входных данных
-//    if (a >= b) {
+//    if (a >= b)
+//    {
 //        cout << "Error: the beginning of the interval should be less than the end of the interval." << endl;
-//        return 1;
 //    }
 //
 //    cout << "Table of function values y = ln|3x|√(2x^5 - 1)" << endl;
@@ -221,10 +244,12 @@
 //    cout << "x\t\ty" << endl;
 //    cout << "-----------------------------------------" << endl;
 //
-//    for (double x = a; x <= b; x += h) {
+//    for (double x = a; x <= b; x += h)
+//    {
 //        double y = calculateFunction(x);
 //
-//        if (isnan(y)) {
+//        if (isnan(y))
+//        {
 //            cout << "x = " << x << ": function isn't defined!" << endl;
 //        }
 //        else {
@@ -233,19 +258,26 @@
 //        }
 //    }
 //
+//}
+//
+//int main() 
+// {
+//    task5_15();
+//    
 //    return 0;
 //}
-// 
-////Exercise 6. 
+
+
+
+////Exercise 6 
 ////15)y = {1, if(x - 1) < 1;
 ////        0, if(x - 1) = 1;
 ////        -1, if(x - 1) > 1}
 //
 //#include <iostream>
-//
 //using namespace std;
 //
-//int main() 
+//void task6_15()
 //{
 //
 //    cout << "Table of function values y = {1, if(x - 1) < 1;\n";
@@ -270,6 +302,11 @@
 //
 //        cout << x << "\t" << y << endl;
 //    }
+//}
 //
+//int main() 
+//{
+//
+//    task6_15();
 //    return 0;
 //}
