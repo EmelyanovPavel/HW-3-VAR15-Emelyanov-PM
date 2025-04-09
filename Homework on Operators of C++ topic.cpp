@@ -109,10 +109,10 @@ void task2_15()
 //15) 
 void task3_15()
 {
-    int A, B;
-    std::cin >> A >> B;
+    int a, b;
+    std::cin >> a >> b;
 
-    for (int i = A; i < B; i++)
+    for (int i = a; i < b; i++)
     {
         if (i % 3 == 0 && i % 2 == 0)
         {
@@ -133,11 +133,11 @@ void task3_15()
 //0 0 0 0
 //5 5 5 5 5
 //0 0 0 0 0
-void NewPrint(int K, int N)
+void newPrint(int k, int n)
 {
-    for (int i = 1; i <= N; ++i)
+    for (int i = 1; i <= n; ++i)
     {
-        std::cout << K << " "; 
+        std::cout << k << " "; 
     }
         
 }
@@ -148,9 +148,9 @@ void task4_15()
 
     for (int i = 1; i <= numbers_number; ++i)
     {
-        NewPrint(i, i);
+        newPrint(i, i);
         std::cout << "\n";
-        NewPrint(0, i);
+        newPrint(0, i);
         std::cout << "\n";
     }
 }
