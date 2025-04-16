@@ -5,7 +5,7 @@
 //Exercise 1
 //15)
 
-void task1_15()
+void task1()
 {
 
     int x, y;
@@ -13,115 +13,127 @@ void task1_15()
 
     if (x >= 0 && x < 8 && y >= 0 && y < 8) //if the point is inside the shaded area, print "Yes". 
     {
-        std::cout << "Yes";
+        std::cout << "Yes\n";
 
     }
     else if (x <= 0 && x > -4 && y >= 0 && y < 8)
     {
-        std::cout << "Yes";
+        std::cout << "Yes\n";
 
     }
     else if (x >= 0 && x < 8 && y <= 0 && y > -4)
     {
-        std::cout << "Yes";
+        std::cout << "Yes\n";
 
     }
     else if (x <= -1 && x >= -4 && y <= 8 && y > 0 || x > 0 && x <= 8 && y <= 8 || x > 0 && x <= 8 && y <= 0 && y >= -4) //if the point is at the shaded area border, print "At the border"
     {
-        std::cout << "At the border ";
+        std::cout << "At the border\n";
 
     }
     else //if the point is outside the shaded area, print "No"
     {
-        std::cout << "No";
+        std::cout << "No\n";
     }
 }
 
- //Exercise 2 
-//15) 
-void task2_15()
+//Exercise 2 
+// 15) 
+
+void task2()
 {
 
-    std::cout << "sign: ";
-    char sign = std::cin.get();
-
-    if (sign == 'c')
-    {
-
-        const auto pi = 3.14;
-
-        std::cout << "radius: ";
-        int radius;
+    char figure;
+    double radius, length, width, side1, side2, side3, p, circlePerimeter, circleArea, rectanglePerimeter, rectangleArea, trianglePerimeter, triangleArea;
+    const double PI = 3.14;
+    
+    std::cout << "Symbol: ";
+    std::cin >> figure;
+    
+    switch (figure) {
+        case 'c':
+        std::cout << "\nradius: ";
         std::cin >> radius;
-
-        int perimeter = 2 * pi * radius;
-        int area = pi * pow(radius, 2);
-
-        std::cout << "Perimeter: " << perimeter << '\n';
-        std::cout << " Area: " << area << '\n';
-
-    }
-    else if (sign == 'r') {
-
-        std::cout << "len: ";
-        int length;
+            
+        circlePerimeter = 2 * PI * radius;
+        circleArea = PI * radius * radius;
+            
+        std::cout << "\nperimeter: " << circlePerimeter << std::endl;
+        std::cout << "area: " << circleArea << std::endl;
+        break;
+            
+        case 'r':
+        std::cout << "\nlength: ";
         std::cin >> length;
-        std::cout << "wid: ";
-        int width;
+        std::cout << "\nwidth: ";
         std::cin >> width;
-
-        int perimeter = 2 * (width + length);
-        int area = width * length;
-
-        std::cout << "Perimeter: " << perimeter << '\n';
-        std::cout << "Area: " << area << '\n';
-
+            
+        rectanglePerimeter = 2 * (length + width);
+        rectangleArea = length * width;
+            
+        std::cout << "\nperimeter: " << rectanglePerimeter << std::endl;
+        std::cout << "area: " << rectangleArea << std::endl;
+        break;
+            
+        case 't':
+        std::cout << "\nsides: ";
+        std::cin >> side1 >> side2 >> side3;
+            
+        trianglePerimeter = side1 + side2 + side3;
+        p = trianglePerimeter / 2;
+        triangleArea = sqrt(p * (p - side1) * (p - side2) * (p - side3));
+            
+        std::cout << "\nperimeter: " << trianglePerimeter << std::endl;
+        std::cout << "area: " << triangleArea << std::endl;
+        break;
+            
+        default:
+        std::cout << "\nParameters are unknown" << std::endl;
+        break;
     }
-    else if (sign == 't') {
-
-        std::cout << "a, b, c: ";
-        int a, b, c;
-        std::cin >> a >> b >> c;
-
-        int perimeter = a + b + c;
-        int p = perimeter / 2;
-        int arg = p * (p - a) * (p - b) * (p - c);
-
-        std::cout << "Perimeter: " << perimeter << '\n';
-
-        if (arg <= 0)
-        {
-            std::cout << "Triangle does not exist!";
-
-        }
-        else {
-            int area = sqrt(arg);
-            std::cout << " Area: " << area << '\n';
-        }
-
-    }
-    else {
-        std::cout << "Parameters are unknown!";
-    }
+        
+    
 }
 
-//Exercise 3
-//15) 
-void task3_15()
+// Exercise 3 - Display on the screen...
+// 15) all even numbers in the range from A to B, multiples of three (A <= B)
+
+void task3()
 {
     int a, b;
     std::cin >> a >> b;
-
-    for (int i = a; i < b; i++)
+    
+    std::cout << "FOR...\n";
+    for (int i = a; i <= b; i++)
     {
         if (i % 3 == 0 && i % 2 == 0)
         {
             std::cout << i << " ";
         }
     }
+    
+    int i2 = a;
+    std::cout << "\nWHILE...\n";
+    while(i2 <= b) {
+        if(i2 % 3 == 0 && i2 % 2 == 0) {
+            std::cout << i2 << " ";
+        }
+        i2++;
+    }
+    
+    int i3 = a;
+    std::cout << "\nDO... WHILE...\n";
+    do {
+        if(i3 % 3 == 0 && i3 % 2 == 0) {
+            std::cout << i3 << " ";
+        }
+        i3++;
+        
+    } while(i3 <= b);
+    std::cout << std::endl;
 }
 
-//Exercise 4 
+//Exercise 4. Display the numbers in the form of the following tables
 //15)
 //1
 //0
@@ -133,6 +145,7 @@ void task3_15()
 //0 0 0 0
 //5 5 5 5 5
 //0 0 0 0 0
+
 void newPrint(int k, int n)
 {
     for (int i = 1; i <= n; ++i)
@@ -142,7 +155,7 @@ void newPrint(int k, int n)
         
 }
 
-void task4_15()
+void task4()
 {
     int numbers_number = 5;
 
@@ -157,6 +170,7 @@ void task4_15()
 
 //Exercise 5
 //15) y = ln|3x|√(2x^5 - 1)
+
 double calculateFunction(double x) {
     if (x == 0 || (2 * pow(x, 5) - 1) < 0)
         return NAN; 
@@ -164,7 +178,7 @@ double calculateFunction(double x) {
     return log(fabs(3 * x)) * sqrt(2 * pow(x, 5) - 1);
 }
 
-void task5_15()
+void task5()
 {
     double a, b, h;
 
@@ -204,7 +218,8 @@ void task5_15()
 //15)y = {1, if(x - 1) < 1;
 //        0, if(x - 1) = 1;
 //        -1, if(x - 1) > 1}
-void task6_15()
+
+void task6()
 {
 
     std::cout << "Table of function values y = {1, if(x - 1) < 1;\n";
@@ -233,12 +248,12 @@ void task6_15()
 
 int main() 
 {
-    task1_15();
-    task2_15();
-    task3_15();
-    task4_15();
-    task5_15();
-    task6_15();
+    task1();
+    task2();
+    task3();
+    task4();
+    task5();
+    task6();
 
     return 0;
 }
