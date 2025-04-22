@@ -4,6 +4,17 @@
 
 //Exercise 1
 //15)
+//          |y
+//       ___|___
+//     _|***|***|_
+//   _|*****|*****|_
+//  |    ***|*******|
+//__|______*|*******|__x
+//  |_      |******_|
+//    |_    |  ***|
+//      |___|___|
+//          |
+//y = -x
 
 void task1()
 {
@@ -38,61 +49,49 @@ void task1()
 }
 
 //Exercise 2 
-// 15) 
+//15) A feature of a geometric shape is given: c is a circle, r is a rectangle, t is a triangle. 
+//Display the perimeter and area of a given shape on the screen (request the data required for 
+//calculations from the user)
 
 void task2()
 {
 
     char figure;
-    double radius, length, width, side1, side2, side3, p, circlePerimeter, circleArea, rectanglePerimeter, rectangleArea, trianglePerimeter, triangleArea;
+    double a, b, c, r, perimeter, area, p;
     const double PI = 3.14;
     
     std::cout << "Symbol: ";
     std::cin >> figure;
     
-    switch (figure) {
+    switch(figure) {
         case 'c':
-        std::cout << "\nradius: ";
-        std::cin >> radius;
-            
-        circlePerimeter = 2 * PI * radius;
-        circleArea = PI * radius * radius;
-            
-        std::cout << "\nperimeter: " << circlePerimeter << std::endl;
-        std::cout << "area: " << circleArea << std::endl;
-        break;
+            std::cout << "radius: ";
+            std::cin >> r;
+            perimeter = 2 * PI * r;
+            area = PI * r * r;
+            break;
             
         case 'r':
-        std::cout << "\nlength: ";
-        std::cin >> length;
-        std::cout << "\nwidth: ";
-        std::cin >> width;
-            
-        rectanglePerimeter = 2 * (length + width);
-        rectangleArea = length * width;
-            
-        std::cout << "\nperimeter: " << rectanglePerimeter << std::endl;
-        std::cout << "area: " << rectangleArea << std::endl;
-        break;
+            std::cout << "rectangle sides: ";
+            std::cin >> a >> b;
+            perimeter = 2 * (a + b);
+            area = a * b;
+            break;
             
         case 't':
-        std::cout << "\nsides: ";
-        std::cin >> side1 >> side2 >> side3;
-            
-        trianglePerimeter = side1 + side2 + side3;
-        p = trianglePerimeter / 2;
-        triangleArea = sqrt(p * (p - side1) * (p - side2) * (p - side3));
-            
-        std::cout << "\nperimeter: " << trianglePerimeter << std::endl;
-        std::cout << "area: " << triangleArea << std::endl;
-        break;
+            std::cout << "triangle sides: ";
+            std::cin >> a >> b >> c;
+            perimeter = a + b + c;
+            p = perimeter / 2; //calculating a semiperimeter
+            area = sqrt(p * (p - a) * (p - b) * (p - c));
+            break;
             
         default:
-        std::cout << "\nParameters are unknown" << std::endl;
-        break;
-    }
+            std::cout << "Parameters are unknown!" << std::endl;
         
-    
+    }
+    std::cout << "perimeter: " << perimeter << std::endl;
+    std::cout << "area: " << area << std::endl;
 }
 
 // Exercise 3 - Display on the screen...
