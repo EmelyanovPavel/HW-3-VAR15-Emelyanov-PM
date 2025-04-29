@@ -16,36 +16,29 @@
 //          |
 //y = -x
 
-void task1()
+void task1() 
 {
-
-    int x, y;
+    
+    double x, y;
+    std::cout << "Enter the coordinates of the point: ";
     std::cin >> x >> y;
-
-    if (x >= 0 && x < 8 && y >= 0 && y < 8) //if the point is inside the shaded area, print "Yes". 
-    {
-        std::cout << "Yes\n";
-
-    }
-    else if (x <= 0 && x > -4 && y >= 0 && y < 8)
-    {
-        std::cout << "Yes\n";
-
-    }
-    else if (x >= 0 && x < 8 && y <= 0 && y > -4)
-    {
-        std::cout << "Yes\n";
-
-    }
-    else if (x <= -1 && x >= -4 && y <= 8 && y > 0 || x > 0 && x <= 8 && y <= 8 || x > 0 && x <= 8 && y <= 0 && y >= -4) //if the point is at the shaded area border, print "At the border"
-    {
-        std::cout << "At the border\n";
-
-    }
-    else //if the point is outside the shaded area, print "No"
-    {
-        std::cout << "No\n";
-    }
+    
+    double boundary = -x; //function value on a straight line
+    
+    if (y == boundary) { 
+        
+        std::cout << "At the border";
+        
+    } else if (y > boundary) {
+        
+        std::cout << "Yes";
+        
+    } else {
+        std::cout << "No";
+    }     
+        
+    std::cout << std::endl;
+    
 }
 
 //Exercise 2 
