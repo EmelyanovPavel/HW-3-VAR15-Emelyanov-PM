@@ -1,44 +1,46 @@
-//Topic 3. Operators of C++
 #include <iostream>
 #include <cmath>
+#include <fstream>
 
-//Exercise 1
-//15)
-//          |y
-//       ___|___
-//     _|***|***|_
-//   _|*****|*****|_
-//  |    ***|*******|
-//__|______*|*******|__x
-//  |_      |******_|
-//    |_    |  ***|
-//      |___|___|
-//          |
-//y = -x
+// Exercise 1. 
+// Given a point on the plane with coordinates (x, y). Output one of the messages (Yes, No, At the border) depending on whether the point lies inside the shaded area, outside the shaded area, or on its border. 
+// The area is represented as follows:
+// Option 15. y = -x
+// link to the picture: 
+// https://private-user-images.githubusercontent.com/35574513/439328361-ddeec275-8696-4afb-8360-38e48b4d8ca1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDYwOTE5ODcsIm5iZiI6MTc0NjA5MTY4NywicGF0aCI6Ii8zNTU3NDUxMy80MzkzMjgzNjEtZGRlZWMyNzUtODY5Ni00YWZiLTgzNjAtMzhlNDhiNGQ4Y2ExLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MDElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTAxVDA5MjgwN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFjNGZkMGQyMDc0OWZiMmVmNmY4NDRjYzBhN2M3OGQ4ZGY4NzEwYWQyNWQ2N2QzNDg3NTYwZjg0NTRjYTgyYjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.FCx82NZtkscX8eKoeXuR393VXbSYVHeJY48ikl87ah8
 
-void task1() 
+void task1()
 {
-    
+
+    // link to the graph of the function "y = -x"
+    char url[1000] = "https://private-user-images.githubusercontent.com/35574513/439328361-ddeec275-8696-4afb-8360-38e48b4d8ca1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDYwOTE5ODcsIm5iZiI6MTc0NjA5MTY4NywicGF0aCI6Ii8zNTU3NDUxMy80MzkzMjgzNjEtZGRlZWMyNzUtODY5Ni00YWZiLTgzNjAtMzhlNDhiNGQ4Y2ExLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MDElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTAxVDA5MjgwN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFjNGZkMGQyMDc0OWZiMmVmNmY4NDRjYzBhN2M3OGQ4ZGY4NzEwYWQyNWQ2N2QzNDg3NTYwZjg0NTRjYTgyYjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.FCx82NZtkscX8eKoeXuR393VXbSYVHeJY48ikl87ah8";
+
+    std::fstream fs;
+    fs.open(url);
+    fs.close();
+
     double x, y;
     std::cout << "Enter the coordinates of the point: ";
     std::cin >> x >> y;
-    
+
     double boundary = -x; //function value on a straight line
-    
-    if (y == boundary) { 
-        
+
+    if (y == boundary) {
+
         std::cout << "At the border";
-        
-    } else if (y > boundary) {
-        
+
+    }
+    else if (y > boundary) {
+
         std::cout << "Yes";
-        
-    } else {
+
+    }
+    else {
         std::cout << "No";
-    }     
-        
+    }
+
     std::cout << std::endl;
-    
+
 }
 
 //Exercise 2 
@@ -48,43 +50,56 @@ void task1()
 
 void task2()
 {
-
     char figure;
-    double a, b, c, r, perimeter, area, p;
+    double perimeter = 0.0;
+    double area = 0.0;
     const double PI = 3.14;
-    
+
     std::cout << "Symbol: ";
     std::cin >> figure;
-    
-    switch(figure) {
-        case 'c':
-            std::cout << "radius: ";
-            std::cin >> r;
-            perimeter = 2 * PI * r;
-            area = PI * r * r;
-            break;
-            
-        case 'r':
-            std::cout << "rectangle sides: ";
-            std::cin >> a >> b;
-            perimeter = 2 * (a + b);
-            area = a * b;
-            break;
-            
-        case 't':
-            std::cout << "triangle sides: ";
-            std::cin >> a >> b >> c;
-            perimeter = a + b + c;
-            p = perimeter / 2; //calculating a semiperimeter
-            area = sqrt(p * (p - a) * (p - b) * (p - c));
-            break;
-            
-        default:
-            std::cout << "Parameters are unknown!" << std::endl;
+
+    switch (figure) {
+    case 'c':
+        //declaring the data for entering
+        double radius;
+        std::cout << "Radius: ";
+        std::cin >> radius;
+
+        //calculating a perimeter and area
+        perimeter = 2 * PI * radius;
+        area = PI * radius * radius;
+        break;
+
+    case 'r':
+        //declaring the data for entering
+        double a, b;
+        std::cout << "Rectangle sides: ";
+        std::cin >> a >> b;
+
+        //calculating a perimeter and area
+        perimeter = 2 * (a + b);
+        area = a * b;
+        break;
+
+    case 't':
+        //declaring the data for calculations and entering
+        double p, x, y, z;
+        std::cout << "Triangle sides: ";
+        std::cin >> x >> y >> z;
+
+        //calculating a perimeter and area
+        perimeter = x + y + z;
+        p = perimeter / 2; //calculating a semiperimeter
+        area = sqrt(p * (p - x) * (p - y) * (p - z));
+        break;
         
+
+    default:
+        std::cout << "Parameters are unknown!" << std::endl;
+
     }
-    std::cout << "perimeter: " << perimeter << std::endl;
-    std::cout << "area: " << area << std::endl;
+    std::cout << "Perimeter: " << perimeter << std::endl;
+    std::cout << "Area: " << area << std::endl;
 }
 
 // Exercise 3 - Display on the screen...
