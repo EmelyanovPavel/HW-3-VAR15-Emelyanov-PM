@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <fstream>
 
 // Exercise 1. 
 // Given a point on the plane with coordinates (x, y). Output one of the messages (Yes, No, At the border) depending on whether the point lies inside the shaded area, outside the shaded area, or on its border. 
@@ -11,36 +10,25 @@
 
 void task1()
 {
-
-    // link to the graph of the function "y = -x"
-    char url[1000] = "https://private-user-images.githubusercontent.com/35574513/439328361-ddeec275-8696-4afb-8360-38e48b4d8ca1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDYwOTE5ODcsIm5iZiI6MTc0NjA5MTY4NywicGF0aCI6Ii8zNTU3NDUxMy80MzkzMjgzNjEtZGRlZWMyNzUtODY5Ni00YWZiLTgzNjAtMzhlNDhiNGQ4Y2ExLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MDElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTAxVDA5MjgwN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFjNGZkMGQyMDc0OWZiMmVmNmY4NDRjYzBhN2M3OGQ4ZGY4NzEwYWQyNWQ2N2QzNDg3NTYwZjg0NTRjYTgyYjUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.FCx82NZtkscX8eKoeXuR393VXbSYVHeJY48ikl87ah8";
-
-    std::fstream fs;
-    fs.open(url);
-    fs.close();
-
+    constexpr auto rr = 100;
+    constexpr auto eps = 1e-12; //the eps constant equal to 1e-12 is used to check for zero so as not to divide by 0
+    
     double x, y;
-    std::cout << "Enter the coordinates of the point: ";
     std::cin >> x >> y;
-
-    double boundary = -x; //function value on a straight line
-
-    if (y == boundary) {
-
+    
+    const auto a = x * x + y * y;
+    const auto b = y + x;
+    
+    if (fabs(b) < eps && a <= rr || fabs(a - rr) < eps && 0 <= b) {
         std::cout << "At the border";
-
-    }
-    else if (y > boundary) {
-
-        std::cout << "Yes";
-
-    }
-    else {
+    } else if (rr < a || b < 0) {
         std::cout << "No";
+    } else {
+        std::cout << "Yes";
     }
-
-    std::cout << std::endl;
-
+    
+    std::cout << std::endl; 
+    //all code works correctly
 }
 
 //Exercise 2 
