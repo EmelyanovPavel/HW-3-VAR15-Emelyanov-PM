@@ -12,24 +12,24 @@
 
 void task1()
 {
-    double r = 100.0;
-    const auto eps = 1e-12;
+    double radius_squared = 100.0;
+    const double constant_eps = 1e-12;
 
-    double x, y;
+    double iks, igrek;
 
     std::cout << "Enter the point coordinates (x, y): ";
-    std::cin >> x >> y;
+    std::cin >> iks >> igrek;
 
-    int a = x * x + y * y;
-    int b = y + x;
+    int sumOfTheVariablesSquares = iks * iks + igrek * igrek;
+    int sumOfTheValues = igrek + iks;
 
     std::cout << "Answer: ";
 
-    if (fabs(b) < eps && a <= r || fabs(a - r) < eps && 0 <= b) {
+    if (fabs(sumOfTheValues) < constant_eps && sumOfTheVariablesSquares <= radius_squared || fabs(sumOfTheVariablesSquares - radius_squared) < constant_eps && 0 <= sumOfTheValues) {
 
         std::cout << "At the border";
 
-    } else if (r < a || b < 0) {
+    } else if (radius_squared < sumOfTheVariablesSquares || sumOfTheValues < 0) {
 
         std::cout << "No";
 
@@ -54,61 +54,55 @@ void task1()
 
 void task2()
 {
+
     char figure;
-
-    double perimeter = 0.0; 
-    double area = 0.0;
+    double perimeter, area, semiperimeter = 0.0;
     const double PI = 3.14;
-
-    std::cout << "Symbol: ";
+    
+    std::cout << "Enter a symbol: ";
     std::cin >> figure;
-
-    switch (figure) 
+    
+    switch(figure) 
     {
-
-    case 'c':
-
+        case 'c':
         double radius;
-
+        
         std::cout << "Enter a radius: ";
         std::cin >> radius;
-
+        
         perimeter = 2 * PI * radius;
         area = PI * radius * radius;
-
+        
         break;
-
-    case 'r':
-
-        double a, b;
-
+            
+        case 'r':
+        double side_a, side_b;
+        
         std::cout << "Enter the rectangle sides: ";
-        std::cin >> a >> b;
-
-        perimeter = 2 * (a + b);
-        area = a * b;
-
+        std::cin >> side_a >> side_b;
+        
+        perimeter = 2 * (side_a + side_b);
+        area = side_a * side_b;
+        
         break;
-
-    case 't':
-
-        double p, x, y, z;
-
+            
+        case 't':
+        double side_x, side_y, side_z;
+        
         std::cout << "Enter the triangle sides: ";
-        std::cin >> x >> y >> z;
-
-        perimeter = x + y + z;
-
-        p = perimeter / 2; 
-        area = sqrt(p * (p - x) * (p - y) * (p - z));
-
+        std::cin >> side_x >> side_y >> side_z;
+        
+        perimeter = side_x + side_y + side_z;
+        semiperimeter = perimeter / 2; //calculating a semiperimeter
+        area = sqrt(semiperimeter * (semiperimeter - side_x) * (semiperimeter - side_y) * (semiperimeter - side_z));
+        
         break;
-
-    default:
-
-        std::cout << "Parameters are unknown!" << std::endl;
-
+            
+        default:
+        std::cout << "The parameters are unknown!" << std::endl;
+        
     }
+    
     std::cout << "Perimeter = " << perimeter << ", area = " << area << std::endl;
 }
 
@@ -119,20 +113,39 @@ void task2()
 
 void task3()
 {
-    int a, b;
-
-    std::cout << "Enter A and B: \n";
-    std::cin >> a >> b;
-
-    std::cout << "Numbers: ";
-
-    for (int i = a; i < b; i++)
+    int begin, end;
+    std::cin >> begin >> end;
+    
+    std::cout << "FOR...\n";
+    for (int i = begin; i <= end; i++)
     {
         if (i % 3 == 0 && i % 2 == 0)
         {
             std::cout << i << " ";
         }
     }
+    
+    int i2 = begin;
+    
+    std::cout << "\nWHILE...\n";
+    while(i2 <= end) {
+        if(i2 % 3 == 0 && i2 % 2 == 0) {
+            std::cout << i2 << " ";
+        }
+        i2++;
+    }
+    
+    int i3 = begin;
+    
+    std::cout << "\nDO... WHILE...\n";
+    do {
+        if(i3 % 3 == 0 && i3 % 2 == 0) {
+            std::cout << i3 << " ";
+        }
+        i3++;
+        
+    } while(i3 <= end);
+    
     std::cout << std::endl;
 }
 
