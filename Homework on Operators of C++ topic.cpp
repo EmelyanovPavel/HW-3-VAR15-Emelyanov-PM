@@ -12,30 +12,30 @@
 
 void task1()
 {
-    double radius_squared = 100.0;
-    const double constant_eps = 1e-12;
-
-    double iks, igrek;
-
+    const double radius_squared = 100.0; 
+    constexpr double eps = 1e-12; 
+    
+    double x, y; 
     std::cout << "Enter the point coordinates (x, y): ";
-    std::cin >> iks >> igrek;
+    std::cin >> x >> y; 
+    
+    const double sum1 = x * x + y * y; 
+    const double sum2 = y + x; 
 
-    int sumOfTheVariablesSquares = iks * iks + igrek * igrek;
-    int sumOfTheValues = igrek + iks;
-
-    std::cout << "Answer: ";
-
-    if (fabs(sumOfTheValues) < constant_eps && sumOfTheVariablesSquares <= radius_squared || fabs(sumOfTheVariablesSquares - radius_squared) < constant_eps && 0 <= sumOfTheValues) {
-
-        std::cout << "At the border";
-
-    } else if (radius_squared < sumOfTheVariablesSquares || sumOfTheValues < 0) {
-
-        std::cout << "No";
-
+    std::cout << "\nAnswer: \n";
+    
+    if (fabs(sum2) < eps && sum1 <= radius_squared || fabs(sum1 - radius_squared) < eps && 0 <= sum2) {
+        
+        std::cout << "On the border"; 
+        
+    } else if (radius_squared < sum1 || sum2 < 0) {
+        
+        std::cout << "No"; 
+        
     } else {
-
+        
         std::cout << "Yes";
+        
     }
 
     std::cout << std::endl;
